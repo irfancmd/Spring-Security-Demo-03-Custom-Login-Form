@@ -3,11 +3,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.example</groupId>
-	<artifactId>spring-security-demo-02-basic-security</artifactId>
+	<artifactId>spring-security-demo-03-custom-login-form</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 
-	<name>spring-security-demo-02-basic-security</name>
+	<name>spring-security-demo-03-custom-login-form</name>
 
 	<properties>
 		<springframework.version>5.0.2.RELEASE</springframework.version>
@@ -77,7 +77,7 @@
 
 	<!-- TO DO: Add support for Maven WAR Plugin -->
 	<build>
-		<finalName>spring-security-demo-02-basic-security</finalName>	
+		<finalName>spring-security-demo-03-custom-login-form</finalName>	
 		
 		<pluginManagement>
 			<plugins>

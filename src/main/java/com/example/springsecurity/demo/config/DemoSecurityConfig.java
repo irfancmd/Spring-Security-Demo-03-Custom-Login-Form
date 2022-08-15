@@ -2,6 +2,7 @@ package com.example.springsecurity.demo.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
@@ -21,5 +22,16 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter{
 		.withUser(users.username("abdul").password("123").roles("MANAGER"))
 		.withUser(users.username("Motin").password("123").roles("ADMIN"));
 
+	}
+	
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+			.anyRequest().authenticated() // Any incoming requests must be authenticated
+			.and()
+			.formLogin() // We want to use form for the login method
+				.loginPage("/showMyLoginPage")
+				.loginProcessingUrl("/authenticateTheUser") // Spring will process form data automatically if we use recommended form element names
+				.permitAll(); // Anyone will be able to see the login form
 	}
 }
